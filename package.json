@@ -1,0 +1,19 @@
+{
+  "name": "node-js-app",
+  "version": "1.0.0",
+  "description": "Sample Node.js application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "server"
+  ],
+  "author": "iamonair",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
