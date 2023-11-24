@@ -6,7 +6,7 @@
     font-family: 'Alegreya Sans', sans-serif;
 }
 body {
-    background: url(/img/aerial.jpg);
+    background: url(img/aerial.jpg);
     color: azure;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -18,8 +18,6 @@ body {
 
 main {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
     padding: 32px 24px;
 }
 
@@ -43,11 +41,16 @@ button {
     padding: 20px;
 }
 
-.app__header {
+.app__options {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 50px;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.app__header {
+    margin-bottom: 40px;
+    text-align: left;
 }
 
 .app__title {
@@ -56,10 +59,9 @@ button {
     font-weight: bold;
     text-shadow: 1px 1px 2px yellow, 0 0 16px blue, 0 0 0.2em rgb(38, 38, 219);
     margin-right: 80px;
-    /* text-shadow: 1px 1px 2px blue; */
-    /* text-shadow: rgb(47, 29, 206) 1px 0 10px; */
 }
 
+.app__deadline, 
 .app__button {
     color: azure;
     font-size: 18px;
@@ -68,8 +70,19 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 1px 1px 2px blue, 0 0 0.2em rgb(95, 95, 211);
-    padding: 5px;
-    background-color: rgba(95, 131, 230, 0.4);
+    padding: 10px;
+    background-color: rgba(95, 131, 230, 0.8);
+}
+
+.todo__deadline {
+    background-color: azure;
+    border: none;
+    outline: 1px solid rgba(65, 105, 217, 0.8);
+    border-radius: 5px;
+    text-align: center;
+    color: rgb(71, 71, 208);
+    font-weight: bold;
+    margin-left: 2px;
 }
 
 .app__button--create {
@@ -77,6 +90,7 @@ button {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-left: 20px;
 }
 
 .material-icons {
@@ -175,7 +189,7 @@ button {
 }
 
 #filterButtons {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 #filterButtons button {

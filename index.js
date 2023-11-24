@@ -6,16 +6,24 @@ const filterAllBtn = document.querySelector('#filterAll');
 let todos = [];
 
 function createNewTodo() {
+    const deadlineDate = document.querySelector('.todo__deadline');
+    const deadline = deadlineDate.value;
+    
+    if (deadline === '') {
+        alert('Select a deadline date.');
+        return;
+    }
+     
     const item = {
         id: new Date().getTime(),
         text: '',
-        complete: false
+        complete: false,
+        deadline: deadline
     };
 
     todos.unshift(item);
     const { itemEl, inputEl, editBtnEl, removeBtnEl } = createTodoElement(item);
     listEl.prepend(itemEl);
-
     inputEl.removeAttribute('disabled');
     inputEl.focus();
 
@@ -36,6 +44,11 @@ function createTodoElement(item) {
     inputEl.value = item.text;
     inputEl.setAttribute('disabled', '');
 
+    const deadlineEl = document.createElement('span');
+    deadlineEl.classList.add('deadline');
+    deadlineEl.textContent = `${item.deadline}`;
+    itemEl.appendChild(deadlineEl);
+
     const actionsEl = document.createElement('div');
     actionsEl.classList.add('actions');
 
@@ -54,9 +67,11 @@ function createTodoElement(item) {
     actionsEl.appendChild(editBtnEl);
     actionsEl.appendChild(removeBtnEl);
 
+    itemEl.appendChild(deadlineEl);
     itemEl.appendChild(checkbox);
     itemEl.appendChild(inputEl);
     itemEl.appendChild(actionsEl);
+    
 
     checkbox.addEventListener('change', () => {
         item.complete = checkbox.checked;
@@ -152,8 +167,6 @@ function load() {
 filterCompletedBtn.addEventListener('click', showCompletedTasks);
 filterIncompleteBtn.addEventListener('click', showIncompleteTasks);
 filterAllBtn.addEventListener('click', showAllTasks);
-// Event listeners
 createBtnEl.addEventListener('click', createNewTodo);
 
-// Initial load
 displayTodos();
